@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Drogaria Rocha | Saúde, bem-estar e ofertas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Drogaria Rocha em São Raimundo Nonato: medicamentos, perfumaria, serviços e Programa de Fidelidade Vale+. Ofertas e atendimento pelo WhatsApp.">
+  <meta name="theme-color" content="#FF6A00">
+
+  <style>
+    /* Drogaria Rocha - Styles (single-file, versão chamativa + CMS ready) */
+    :root{
+      --brand:#FF6A00;
+      --brand-700:#E35B00;
+      --brand-900:#7A2D00;
+      --brand-50:#FFF8F2;
+      --brand-100:#FFF2E8;
+      --brand-200:#FFD2B3;
+      --brand-300:#FFB482;
+
+      --text:#1A1A1A;
+      --muted:#626262;
+      --bg:#FFFFFF;
+      --surface:#F7F7F7;
+      --border:#EAEAEA;
+      --ok:#0A7C2F;
+
+      --shadow:0 10px 30px rgba(0,0,0,.06);
+      --grad: linear-gradient(90deg, #FF6A00 0%, #FF8A2A 50%, #FF6A00 100%);
+      --grad-soft: linear-gradient(180deg, var(--brand-50) 0%, #fff 45%, var(--surface) 45%);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.6;
+    }
+    img{display:block;max-width:100%;height:auto}
+
+    .container{width:100%;max-width:1200px;margin:0 auto;padding:0 16px}
+    .section{padding:48px 0}
+    .section.accent{background:linear-gradient(180deg, #fff 0%, var(--brand-50) 100%)}
+    .section-header{margin-bottom:24px}
+    .section-header h2{font-size:1.8rem;margin:0 0 12px;position:relative;display:inline-block}
+    .section-header h2::after{
+      content:"";position:absolute;left:0;bottom:-6px;width:64px;height:4px;background:var(--grad);border-radius:2px
+    }
+    .section-header p{color:var(--muted);margin:0}
+
+    /* Topbar e Header */
+    .topbar{
+      background:linear-gradient(90deg, #FF6A00, #FF8A2A);
+      color:#fff;font-size:.9rem;
+    }
+    .topbar .wrap{display:flex;gap:16px;align-items:center;justify-content:space-between;padding:6px 0}
+    .header{
+      position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid var(--border)
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px;color:inherit;text-decoration:none}
+    .logo-badge{
+      width:36px;height:36px;border-radius:10px;background:var(--brand);display:grid;place-items:center;color:#fff;font-weight:900;box-shadow:var(--shadow)
+    }
+    .logo span{font-size:1.1rem}
+    .menu{display:flex;gap:8px;align-items:center}
+    .menu a{
+      color:var(--text);text-decoration:none;font-weight:700;padding:8px 12px;border-radius:8px
+    }
+    .menu a:hover,.menu a:focus{background:var(--brand-50);color:var(--brand-700)}
+    .burger{display:none;background:none;border:0;font-size:1.4rem;cursor:pointer}
+
+    /* Hero mais vibrante */
+    .hero{
+      background:
+        radial-gradient(1000px 600px at 80% -10%, rgba(255,106,0,.22), rgba(255,106,0,0) 60%),
+        var(--grad-soft);
+      padding:10px 0 32px;
+    }
+    .hero-wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:24px;align-items:center}
+    .hero h1{font-size:2.2rem;line-height:1.2;margin:0 0 10px}
+    .hero p{color:var(--muted);margin:0 0 18px}
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:6px 10px;border:1px solid var(--brand-200);border-radius:999px;font-size:.9rem;background:var(--brand-50);margin-bottom:10px;color:var(--brand-900)
+    }
+    .hero-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .hero-card{
+      background:#fff;border:1px solid var(--border);border-radius:12px;padding:14px;box-shadow:var(--shadow)
+    }
+    .hero-card strong, .hero-card span{color:var(--brand);font-weight:800}
+    .hero-img{border-radius:16px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow);background:#fff}
+
+    /* Botões */
+    .btn{display:inline-flex;align-items:center;gap:10px;border:0;border-radius:10px;padding:12px 16px;font-weight:800;cursor:pointer;text-decoration:none;transition:.25s}
+    .btn-primary{background:var(--grad);color:#fff;background-size:200% auto}
+    .btn-primary:hover{background-position:right center;transform:translateY(-1px)}
+    .btn-outline{background:var(--brand-50);border:1px solid var(--brand-200);color:var(--brand-900)}
+    .btn-outline:hover{border-color:var(--brand-700);box-shadow:0 6px 18px rgba(255,106,0,.12)}
+    .btn-whats{background:#1FAF38;color:#fff}
+    .btn-whats:hover{filter:brightness(.95);transform:translateY(-1px)}
+
+    /* Grids & Cards */
+    .grid{display:grid;gap:16px}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    .grid-4{grid-template-columns:repeat(4,1fr)}
+    .card{
+      position:relative;background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);transition:.25s
+    }
+    .card::before{content:"";display:block;height:3px;background:var(--grad)}
+    .card:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(255,106,0,.12)}
+    .card-body{padding:14px}
+    .price{font-weight:900;color:var(--ok);font-size:1.12rem}
+    .badge{display:inline-block;background:var(--grad);color:#fff;padding:4px 10px;border-radius:999px;font-size:.8rem;font-weight:800}
+
+    /* Depoimentos */
+    .testi{display:flex;flex-direction:column;gap:8px}
+    .testi .who{display:flex;align-items:center;gap:10px}
+    .avatar{width:36px;height:36px;border-radius:999px;background:linear-gradient(135deg,#ddd,#f1f1f1)}
+
+    /* Footer */
+    .footer{position:relative;background:#0F0F0F;color:#eee}
+    .footer::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--grad)}
+    .footer a{color:#eee;text-decoration:none}
+    .footer .cols{display:grid;grid-template-columns:2fr 1fr 1fr;gap:24px}
+    .footer small{color:#bbb}
+
+    /* WhatsApp Floating (com brilho) */
+    .whats-floating{
+      position:fixed;right:16px;bottom:16px;z-index:1200;
+      display:flex;align-items:center;gap:10px;
+      background:#1FAF38;color:#fff;border-radius:999px;padding:12px 16px;
+      box-shadow:0 10px 30px rgba(31,175,56,.25);text-decoration:none;font-weight:900
+    }
+    @keyframes pulse{
+      0%{box-shadow:0 0 0 0 rgba(31,175,56,.45)}
+      70%{box-shadow:0 0 0 12px rgba(31,175,56,0)}
+      100%{box-shadow:0 0 0 0 rgba(31,175,56,0)}
+    }
+    .whats-floating{animation:pulse 2.8s infinite}
+    @media (prefers-reduced-motion:reduce){.whats-floating{animation:none}}
+
+    /* Forms */
+    .input, textarea{
+      width:100%;padding:12px;border:1px solid var(--border);border-radius:10px;font:inherit
+    }
+    label{font-weight:800;font-size:.95rem}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    textarea{min-height:120px;resize:vertical}
+    .form{display:grid;gap:12px}
+
+    /* Category Pills */
+    .pills{display:flex;flex-wrap:wrap;gap:8px}
+    .pill-btn{
+      border:1px solid var(--brand-200);background:var(--brand-50);color:var(--brand-900);
+      border-radius:999px;padding:8px 12px;cursor:pointer;font-weight:800;transition:.2s
+    }
+    .pill-btn:hover{border-color:var(--brand-700)}
+    .pill-btn.active{background:var(--grad);color:#fff;border-color:transparent}
+
+    /* Responsivo */
+    @media (max-width: 992px){
+      .hero-wrap{grid-template-columns:1fr}
+      .grid-4{grid-template-columns:repeat(2,1fr)}
+      .grid-3{grid-template-columns:repeat(2,1fr)}
+      .footer .cols{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width: 640px){
+      .menu{display:none;position:absolute;top:64px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);flex-direction:column;padding:12px}
+      .menu.open{display:flex}
+      .burger{display:inline-block}
+      .grid-4{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+      .form-row{grid-template-columns:1fr}
+    }
+  </style>
+
+  <!-- Schema.org (atualizado via JS com dados da loja) -->
+  <script id="schema-org" type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Pharmacy",
+    "name":"Drogaria Rocha",
+    "url":"https://www.seusite.netlify.app",
+    "telephone":"+55 89 99999-0000",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"R. Exemplo, 123 - Centro",
+      "addressLocality":"São Raimundo Nonato",
+      "addressRegion":"PI",
+      "postalCode":"00000-000",
+      "addressCountry":"BR"
+    },
+    "openingHours":["Mo-Sa 08:00-20:00","Su 08:00-12:00"]
+  }
+  </script>
+</head>
+<body>
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="container wrap">
+      <div style="display:flex;gap:12px;align-items:center">
+        <span style="display:flex;align-items:center;gap:6px">
+          <svg width="16" height="16" fill="currentColor" aria-hidden="true"><circle cx="8" cy="8" r="8" fill="#1FAF38"/></svg>
+          Entrega rápida na região
+        </span>
+        <span style="display:flex;align-items:center;gap:6px">
+          <svg width="16" height="16" fill="currentColor" aria-hidden="true"><rect width="16" height="16" fill="#FFFFFF" fill-opacity=".6"/></svg>
+          Programa Vale+
+        </span>
+      </div>
+      <div style="display:flex;gap:16px">
+        <a id="loja-telefone" data-phone href="tel:+5589999990000" aria-label="Ligar" style="color:#fff">+55 (89) 99999-0000</a>
+        <a data-wa class="btn btn-whats" style="padding:6px 10px" aria-label="WhatsApp">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header" role="banner">
+    <div class="container nav">
+      <a class="logo" href="#inicio" aria-label="Drogaria Rocha">
+        <div class="logo-badge">DR</div>
+        <span>Drogaria Rocha</span>
+      </a>
+      <nav class="menu" aria-label="Principal">
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#produtos">Produtos</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <button class="burger" aria-label="Abrir menu">☰</button>
+    </div>
+  </header>
+
+  <main id="inicio" role="main">
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-titulo">
+      <div class="container hero-wrap">
+        <div>
+          <div class="pill">
+            <svg width="16" height="16" aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M3 12h18" stroke="currentColor" stroke-width="2"/></svg>
+            Ofertas da semana
+          </div>
+          <h1 id="hero-titulo">Saúde, confiança e ofertas de verdade na Drogaria Rocha</h1>
+          <p id="hero-subtitulo">Medicamentos, perfumaria e serviços com atendimento humanizado. Chame no WhatsApp e receba em casa.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 18px">
+            <a data-wa class="btn btn-whats">Falar no WhatsApp</a>
+            <a href="#produtos" class="btn btn-primary" id="hero-cta-produtos">Ver produtos e promoções</a>
+          </div>
+          <div class="hero-cards">
+            <div class="hero-card"><span id="hero-d1">Vale+ Programa de Fidelidade: acumule pontos e ganhe descontos</span></div>
+            <div class="hero-card"><span id="hero-d2">Serviços: injetáveis, pressão e glicemia com profissionais</span></div>
+          </div>
+        </div>
+        <div class="hero-img" aria-hidden="true">
+          <img id="hero-img" src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop" alt="Atendimento na Drogaria Rocha" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- Promoções -->
+    <section class="section accent" aria-labelledby="promocoes-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="promocoes-title">Promoções em destaque</h2>
+          <p>Ofertas válidas esta semana ou enquanto durarem os estoques.</p>
+        </div>
+        <div class="grid grid-4" id="promocoes-grid">
+          <!-- Itens renderizados via CMS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Vale+ -->
+    <section class="section" aria-labelledby="vale-titulo" style="background:var(--brand-100)">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="vale-titulo">Programa de Fidelidade Vale+</h2>
+          <p id="vale-subtitulo">Economize a cada compra. Cadastre-se gratuitamente.</p>
+        </div>
+        <div class="grid grid-3" id="vale-blocos"></div>
+        <div style="margin-top:14px">
+          <a data-wa class="btn btn-primary" id="vale-botao">Quero entrar no Vale+</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section class="section accent" aria-labelledby="depoimentos-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="depoimentos-title">Depoimentos</h2>
+          <p>O que nossos clientes dizem</p>
+        </div>
+        <div class="grid grid-3" id="depoimentos-grid">
+          <!-- Depoimentos via CMS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Sobre -->
+    <section class="section" id="sobre" aria-labelledby="sobre-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="sobre-title">Sobre a Drogaria Rocha</h2>
+          <p>História, missão, visão e valores</p>
+        </div>
+        <div class="grid" style="grid-template-columns:1.2fr .8fr;gap:24px">
+          <div>
+            <h3>Nossa história</h3>
+            <p>Fundada em São Raimundo Nonato, a Drogaria Rocha nasceu com o propósito de cuidar das famílias da região, oferecendo atendimento próximo, orientação segura e preços justos.</p>
+            <h3>Missão</h3>
+            <p>Promover saúde e bem-estar com atendimento humano, ágil e de confiança.</p>
+            <h3>Visão</h3>
+            <p>Ser referência em farmácia e perfumaria na região, unindo qualidade, preço e serviços.</p>
+            <h3>Valores</h3>
+            <ul>
+              <li>Ética e responsabilidade</li>
+              <li>Respeito às pessoas</li>
+              <li>Excelência no atendimento</li>
+              <li>Transparência e credibilidade</li>
+            </ul>
+          </div>
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1582719478203-3f6c84ca4d83?q=80&w=1200&auto=format&fit=crop" alt="Fachada da Drogaria Rocha" loading="lazy">
+            <div class="card-body">
+              <p>Equipe qualificada e espaço acolhedor para atender você e sua família.</p>
+              <a data-wa class="btn btn-primary">Falar com a equipe</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Produtos -->
+    <section class="section accent" id="produtos" aria-labelledby="produtos-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="produtos-title">Produtos</h2>
+          <p>Selecione uma categoria ou fale no WhatsApp para consultar estoque.</p>
+        </div>
+
+        <div class="pills" style="margin-bottom:14px">
+          <button class="pill-btn active" data-filter="all">Todos</button>
+          <button class="pill-btn" data-filter="medicamentos">Medicamentos</button>
+          <button class="pill-btn" data-filter="higiene">Higiene pessoal</button>
+          <button class="pill-btn" data-filter="cosmeticos">Cosméticos</button>
+          <button class="pill-btn" data-filter="vitaminas">Vitaminas</button>
+          <button class="pill-btn" data-filter="infantil">Infantil</button>
+          <button class="pill-btn" data-filter="promocoes">Promoções</button>
+        </div>
+
+        <div class="grid grid-4" id="produtos-grid">
+          <!-- Produtos via CMS -->
+        </div>
+
+        <div style="margin-top:18px">
+          <a data-wa class="btn btn-whats">Não encontrou? Chame no WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Serviços -->
+    <section class="section" id="servicos" aria-labelledby="servicos-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="servicos-title">Nossos serviços</h2>
+          <p>Profissionais qualificados, atendimento humanizado.</p>
+        </div>
+
+        <div class="grid grid-3" id="servicos-grid">
+          <!-- Serviços via CMS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Contato -->
+    <section class="section accent" id="contato" aria-labelledby="contato-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="contato-title">Fale com a Drogaria Rocha</h2>
+          <p>Será um prazer atender você.</p>
+        </div>
+
+        <div class="grid" style="grid-template-columns:1fr 1fr;gap:24px">
+          <div>
+            <h3>Contato rápido</h3>
+            <p><strong>Telefone:</strong> <a data-phone href="tel:+5589999990000">+55 (89) 99999-0000</a></p>
+            <p><strong>WhatsApp:</strong> <a data-wa>Atendimento</a></p>
+            <p><strong>Endereço:</strong> <span id="loja-endereco">R. Exemplo, 123 - Centro, São Raimundo Nonato - PI</span></p>
+            <div class="card" style="overflow:hidden">
+              <iframe id="maps-iframe" title="Mapa Drogaria Rocha" width="100%" height="300" style="border:0" loading="lazy" allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps?q=Drogaria%20Rocha%20S%C3%A3o%20Raimundo%20Nonato&output=embed"></iframe>
+            </div>
+          </div>
+          <div>
+            <h3>Envie uma mensagem</h3>
+            <form class="form" action="#" method="post">
+              <div class="form-row">
+                <div>
+                  <label for="nome">Nome</label>
+                  <input class="input" type="text" id="nome" name="nome" required>
+                </div>
+                <div>
+                  <label for="telefone">Telefone</label>
+                  <input class="input" type="tel" id="telefone" name="telefone" required>
+                </div>
+              </div>
+              <div>
+                <label for="assunto">Assunto</label>
+                <input class="input" type="text" id="assunto" name="assunto" required>
+              </div>
+              <div>
+                <label for="mensagem">Mensagem</label>
+                <textarea id="mensagem" name="mensagem" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Enviar</button>
+              <a data-wa class="btn btn-whats">Chamar no WhatsApp</a>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="footer section" role="contentinfo">
+    <div class="container cols">
+      <div>
+        <a class="logo" href="#inicio" style="margin-bottom:10px">
+          <div class="logo-badge">DR</div><span>Drogaria Rocha</span>
+        </a>
+        <p>Saúde, bem-estar e confiança ao seu alcance.</p>
+        <small id="loja-cnpj">CNPJ: 00.000.000/0000-00</small>
+      </div>
+      <div>
+        <h3>Contato</h3>
+        <p>
+          <strong>Endereço:</strong> <span id="loja-endereco-rodape">R. Exemplo, 123 - Centro, São Raimundo Nonato - PI</span><br>
+          <strong>Telefone:</strong> <a id="loja-telefone-rodape" href="tel:+5589999990000">+55 (89) 99999-0000</a><br>
+          <strong>Horário:</strong> <span id="loja-horario">Seg a Sáb: 08h às 20h | Dom: 08h às 12h</span>
+        </p>
+      </div>
+      <div>
+        <h3>WhatsApp</h3>
+        <p><a data-wa class="btn btn-whats">Falar agora</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botão flutuante WhatsApp -->
+  <a class="whats-floating" data-wa aria-label="Falar no WhatsApp">
+    <svg width="18" height="18" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+      <path d="M19.11 17.21c-.27-.14-1.59-.78-1.84-.87-.25-.09-.43-.14-.62.14-.18.27-.71.86-.87 1.04-.16.18-.32.2-.59.07-.27-.14-1.12-.41-2.13-1.31-.79-.71-1.33-1.59-1.49-1.86-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.62-1.49-.85-2.04-.22-.52-.45-.45-.62-.45h-.53c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.29 0 1.36.99 2.68 1.13 2.86.14.18 1.95 2.97 4.73 4.16.66.28 1.17.45 1.57.58.66.21 1.26.18 1.74.11.53-.08 1.59-.65 1.81-1.28.22-.63.22-1.17.16-1.28-.05-.11-.23-.18-.5-.32z"/><path d="M26.67 5.33C23.78 2.44 20.03 1 16.01 1 8.29 1 2 7.29 2 15.01c0 2.45.64 4.83 1.85 6.93l-1.95 7.12 7.29-1.91c2.05 1.12 4.37 1.71 6.8 1.71h.01c7.72 0 14.01-6.29 14.01-14.01 0-3.74-1.46-7.49-4.35-10.38zM16 28.02h-.01c-2.21 0-4.38-.59-6.25-1.71l-.45-.27-4.32 1.13 1.15-4.2-.29-.43C4.6 20.31 4 17.7 4 15.01 4 8.41 9.4 3.01 16 3.01c3.23 0 6.27 1.26 8.56 3.55C26.85 6.85 29 10.7 29 15.01c0 6.6-5.4 12.01-13 12.01z"/>
+    </svg>
+    WhatsApp
+  </a>
+
+  <script>
+    // Integração Decap CMS — carregamento dinâmico do conteúdo JSON
+    const PATH = "/content/";
+    let WHATS_NUMBER = "5589999990000"; // fallback
+
+    const qs = (s, p = document) => p.querySelector(s);
+    const qsa = (s, p = document) => [...p.querySelectorAll(s)];
+    const brl = v => `R$ ${Number(v).toFixed(2).replace('.', ',')}`;
+
+    const fetchJSON = async (file) => {
+      const res = await fetch(PATH + file, { cache: "no-store" });
+      if (!res.ok) throw new Error(`Erro ao carregar ${file}`);
+      return res.json();
+    };
+
+    function waLink(message = "Olá! Quero falar com a Drogaria Rocha.") {
+      const text = encodeURIComponent(message);
+      return `https://wa.me/${WHATS_NUMBER}?text=${text}`;
+    }
+
+    function bindWhatsLinks(root = document) {
+      qsa("[data-wa]", root).forEach(a => {
+        const msg = a.getAttribute("data-wa") || undefined;
+        a.setAttribute("href", waLink(msg));
+        a.setAttribute("target", "_blank");
+        a.setAttribute("rel", "noopener");
+      });
+      qsa("[data-product]", root).forEach(a => {
+        const name = a.getAttribute("data-product");
+        a.setAttribute("href", waLink(`Olá! Tenho interesse no produto: ${name}.`));
+        a.setAttribute("target", "_blank");
+        a.setAttribute("rel", "noopener");
+      });
+    }
+
+    function updatePhones(telefone) {
+      // Atualiza todos os anchors marcados com data-phone
+      qsa("[data-phone]").forEach(a => {
+        a.textContent = telefone || "";
+        const telHref = telefone ? "tel:" + telefone.replace(/\s|\(|\)|-/g,'') : "#";
+        a.setAttribute("href", telHref);
+      });
+    }
+
+    function updateSchemaOrg(loja) {
+      const node = qs("#schema-org");
+      if (!node) return;
+      const schema = {
+        "@context":"https://schema.org",
+        "@type":"Pharmacy",
+        "name": loja?.nome || "Drogaria Rocha",
+        "url": location.origin,
+        "telephone": loja?.telefone || "",
+        "address":{
+          "@type":"PostalAddress",
+          "streetAddress": loja?.endereco || "",
+          "addressLocality":"São Raimundo Nonato",
+          "addressRegion":"PI",
+          "postalCode":"00000-000",
+          "addressCountry":"BR"
+        },
+        "openingHours": Array.isArray(loja?.opening_hours) ? loja.opening_hours : []
+      };
+      node.textContent = JSON.stringify(schema);
+    }
+
+    function applyLoja(data) {
+      // WhatsApp (apenas dígitos)
+      if (data.whatsapp) WHATS_NUMBER = String(data.whatsapp).replace(/\D/g, "");
+
+      // Telefone (topo, contato, rodapé)
+      updatePhones(data.telefone || "");
+      const telHref = data.telefone ? "tel:" + data.telefone.replace(/\s|\(|\)|-/g,'') : "#";
+      qs("#loja-telefone")?.setAttribute("href", telHref);
+      qs("#loja-telefone-rodape")?.setAttribute("href", telHref);
+      if (qs("#loja-telefone-rodape")) qs("#loja-telefone-rodape").textContent = data.telefone || "";
+
+      // Endereço / Horário / CNPJ
+      qs("#loja-endereco") && (qs("#loja-endereco").textContent = data.endereco || "");
+      qs("#loja-endereco-rodape") && (qs("#loja-endereco-rodape").textContent = data.endereco || "");
+      qs("#loja-horario") && (qs("#loja-horario").textContent = data.horario || "");
+      qs("#loja-cnpj") && (qs("#loja-cnpj").textContent = data.cnpj ? `CNPJ: ${data.cnpj}` : "");
+
+      // Mapa
+      if (qs("#maps-iframe") && data.maps_query) {
+        qs("#maps-iframe").setAttribute("src", `https://www.google.com/maps?q=${encodeURIComponent(data.maps_query)}&output=embed`);
+      }
+
+      // Atualiza Schema.org
+      updateSchemaOrg(data);
+
+      // Atualiza todos os botões de WhatsApp
+      bindWhatsLinks();
+    }
+
+    function applyHero(data) {
+      qs("#hero-titulo") && (qs("#hero-titulo").textContent = data.titulo || "");
+      qs("#hero-subtitulo") && (qs("#hero-subtitulo").textContent = data.subtitulo || "");
+      qs("#hero-d1") && (qs("#hero-d1").textContent = data.destaque1 || "");
+      qs("#hero-d2") && (qs("#hero-d2").textContent = data.destaque2 || "");
+      qs("#hero-cta-produtos") && (qs("#hero-cta-produtos").textContent = data.cta_produtos || "Ver produtos e promoções");
+      if (qs("#hero-img") && data.imagem) qs("#hero-img").setAttribute("src", data.imagem);
+    }
+
+    function renderPromocoes(data) {
+      const grid = qs("#promocoes-grid");
+      if (!grid) return;
+      grid.innerHTML = (data.itens || []).map(p => `
+        <article class="card">
+          <img src="${p.imagem}" alt="${p.nome}" loading="lazy" />
+          <div class="card-body">
+            ${p.badge ? `<span class="badge">${p.badge}</span>` : ""}
+            <h3>${p.nome}</h3>
+            <p class="price">${brl(p.preco)}</p>
+            <a class="btn btn-outline" data-product="${p.nome}">Comprar via WhatsApp</a>
+          </div>
+        </article>
+      `).join("");
+      bindWhatsLinks(grid);
+    }
+
+    function renderProdutos(data) {
+      const grid = qs("#produtos-grid");
+      if (!grid) return;
+      grid.innerHTML = (data.itens || []).map(p => `
+        <article class="card" data-category="${p.categoria}">
+          <img src="${p.imagem}" alt="${p.nome}" loading="lazy">
+          <div class="card-body">
+            ${p.badge ? `<span class="badge">${p.badge}</span>` : ""}
+            <h3>${p.nome}</h3>
+            <p class="price">${brl(p.preco)}</p>
+            <a class="btn btn-outline" data-product="${p.nome}">Comprar via WhatsApp</a>
+          </div>
+        </article>
+      `).join("");
+      bindWhatsLinks(grid);
+
+      // Filtro (pills)
+      const filterBtns = qsa("[data-filter]");
+      if (filterBtns.length) {
+        const items = qsa("[data-category]", grid);
+        filterBtns.forEach(btn => {
+          btn.onclick = () => {
+            filterBtns.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            const cat = btn.getAttribute("data-filter");
+            items.forEach(el => {
+              el.style.display = (cat === "all" || el.getAttribute("data-category") === cat) ? "" : "none";
+            });
+          };
+        });
+      }
+    }
+
+    function renderServicos(data) {
+      const grid = qs("#servicos-grid");
+      if (!grid) return;
+      grid.innerHTML = (data.itens || []).map(s => `
+        <div class="card">
+          <div class="card-body">
+            <h3>${s.titulo}</h3>
+            <p>${s.descricao}</p>
+            <a data-wa class="btn btn-outline">${s.botao || "Falar no WhatsApp"}</a>
+          </div>
+        </div>
+      `).join("");
+      bindWhatsLinks(grid);
+    }
+
+    function renderDepoimentos(data) {
+      const grid = qs("#depoimentos-grid");
+      if (!grid) return;
+      grid.innerHTML = (data.itens || []).map(d => `
+        <div class="card testi">
+          <div class="card-body">
+            <div class="who"><div class="avatar"></div><strong>${d.nome}</strong></div>
+            <p>${d.texto}</p>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function renderVale(data) {
+      qs("#vale-titulo") && (qs("#vale-titulo").textContent = data.titulo || "Programa de Fidelidade Vale+");
+      qs("#vale-subtitulo") && (qs("#vale-subtitulo").textContent = data.subtitulo || "");
+      const wrap = qs("#vale-blocos");
+      if (wrap && Array.isArray(data.blocos)) {
+        wrap.innerHTML = data.blocos.map(b => `
+          <div class="card"><div class="card-body"><h3>${b.titulo}</h3><p>${b.texto}</p></div></div>
+        `).join("");
+      }
+      qs("#vale-botao") && (qs("#vale-botao").textContent = data.botao || "Quero entrar no Vale+");
+      bindWhatsLinks();
+    }
+
+    // Inicialização
+    document.addEventListener("DOMContentLoaded", async () => {
+      // Menu mobile
+      qs(".burger")?.addEventListener("click", () => qs(".menu")?.classList.toggle("open"));
+
+      try {
+        const [loja, hero, promocoes, produtos, servicos, depo, vale] = await Promise.all([
+          fetchJSON("loja.json"),
+          fetchJSON("hero.json"),
+          fetchJSON("promocoes.json"),
+          fetchJSON("produtos.json"),
+          fetchJSON("servicos.json"),
+          fetchJSON("depoimentos.json"),
+          fetchJSON("vale.json"),
+        ]);
+
+        applyLoja(loja);
+        applyHero(hero);
+        renderPromocoes(promocoes);
+        renderProdutos(produtos);
+        renderServicos(servicos);
+        renderDepoimentos(depo);
+        renderVale(vale);
+      } catch (e) {
+        console.error("Falha ao carregar conteúdo do CMS:", e);
+      }
+
+      // Aplica WhatsApp nos elementos estáticos (fallback)
+      bindWhatsLinks();
+    });
+  </script>
+</body>
+</html>
