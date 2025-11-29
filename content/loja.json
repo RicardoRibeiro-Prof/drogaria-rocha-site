@@ -1,0 +1,10 @@
+{
+  "nome": "Drogaria Rocha",
+  "telefone": "+55 (89) 99999-0000",
+  "whatsapp": "5589999990000",
+  "endereco": "R. Exemplo, 123 - Centro, São Raimundo Nonato - PI",
+  "cnpj": "00.000.000/0000-00",
+  "horario": "Seg a Sáb: 08h às 20h | Dom: 08h às 12h",
+  "maps_query": "Drogaria Rocha São Raimundo Nonato",
+  "opening_hours": ["Mo-Sa 08:00-20:00", "Su 08:00-12:00"]
+}
