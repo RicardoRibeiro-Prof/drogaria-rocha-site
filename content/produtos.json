@@ -1,1 +1,16 @@
-{ "itens": [] }
+{
+  "itens": [
+    {
+      "nome": "Episol Smart Color FPS 50 (Mantecorp) 40g",
+      "imagem": "assets/img/episol-smart-color-50.jpg",
+      "categoria": "dermocosméticos",
+      "badge": "Protetor solar"
+    },
+    {
+      "nome": "Redoxon Vitamina C Gotas 200 mg",
+      "imagem": "assets/img/redoxon-gotas.jpg",
+      "categoria": "vitaminas",
+      "badge": "Vitamina C"
+    }
+  ]
+}
