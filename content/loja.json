@@ -1,10 +1,10 @@
 {
   "nome": "Drogaria Rocha",
-  "telefone": "+55 89 98148-5863",
-  "whatsapp": "55898981485863",
-  "endereco": "R. Raimundo Silva, 392 - Centro, São Raimundo Nonato - PI",
-  "cnpj": "735837000001/20",
-  "horario": "Seg a Sex: 07h às 20h | Sab: 0h às 16h",
+  "telefone": "(89) 98148-5863",
+  "whatsapp": "5589981485863",
+  "endereco": "R. Exemplo, 123 - Centro, São Raimundo Nonato - PI",
+  "cnpj": "00.000.000/0000-00",
+  "horario": "Seg a Sáb: 08h às 20h | Dom: 08h às 12h",
   "maps_query": "Drogaria Rocha São Raimundo Nonato",
   "opening_hours": ["Mo-Sa 08:00-20:00", "Su 08:00-12:00"]
 }
